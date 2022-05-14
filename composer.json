@@ -1,6 +1,8 @@
 {
     "name": "root/memcached-lib",
+    "description": "Memcached Lib",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Maksim Morozov",
