@@ -1,6 +1,8 @@
 {
     "name": "root/memcached-lib",
+    "description": "Memcached Lib",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Maksim Morozov",
@@ -24,5 +26,8 @@
         "psr-4": {
             "lib\\": "src"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest"
     }
 }
