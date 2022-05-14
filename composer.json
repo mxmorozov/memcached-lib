@@ -1,0 +1,28 @@
+{
+    "name": "root/memcached-lib",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Maksim Morozov",
+            "email": "maxpower656@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "pestphp/pest": "dev-master"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "require": {
+        "ext-memcached": "*",
+        "graze/telnet-client": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "lib\\": "src"
+        }
+    }
+}
