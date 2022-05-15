@@ -20,6 +20,14 @@ jobs:
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
+      
+    - name: Run PHPCS inspection
+      uses: rtCamp/action-phpcs-code-review@v2
+      env:
+        GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN  }}
+        SKIP_FOLDERS: ".github,vendor"
+      with:
+        args: "PSR12"       
 
     - name: Cache Composer packages
       id: composer-cache
@@ -31,15 +39,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-      
-    - name: Run PHPCS inspection
-      uses: rtCamp/action-phpcs-code-review@v2
-      env:
-        GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN  }}
-        SKIP_FOLDERS: ".github"
-      with:
-        args: "PSR12"           
+      run: composer install --prefer-dist --no-progress                
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
